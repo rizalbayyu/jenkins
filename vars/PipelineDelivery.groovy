@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
 
 def call (Map param){
+    def deliver libraryResource "deliver.sh"
     pipeline {
         agent {label 'linux1'}
         stages {
@@ -21,7 +22,7 @@ def call (Map param){
             }
             stage('Deliver') {
                 steps {
-                    sh "sh jenkins/scripts/deliver.sh $param.ip"
+                    sh ((deliver)"$param.ip")
                 }
             }
         }
