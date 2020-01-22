@@ -19,8 +19,6 @@ def call (Map param){
                     }
                 }
             }
-           stages {
-
             stage("Interactive_Input") {
                 steps {
                     script {
