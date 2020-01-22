@@ -21,8 +21,10 @@ def call (Map param){
                 }
             }
             stage('Deliver') {
+                steps {
                     withEnv(["IP=$param.ip"]){
                     sh (deliver)
+                    }
                 }
             }
         }
